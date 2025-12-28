@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage Example</title>
+    <style>
+        body {
+            background: #1f1f2e;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .box {
+            background: #2b2b3d;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            background: #5b5bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #4848e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>User Info</h2>
+
+    <input id="name" placeholder="Name">
+    <input id="id" placeholder="ID">
+    <input id="phone" placeholder="Phone">
+    <input id="email" placeholder="Email">
+    <input id="address" placeholder="Address">
+
+    <button onclick="saveData()">Save</button>
+    <button onclick="loadData()">Load</button>
+</div>
+
+<script>
+    function saveData() {
+        localStorage.setItem("name", document.getElementById("name").value);
+        localStorage.setItem("id", document.getElementById("id").value);
+        localStorage.setItem("phone", document.getElementById("phone").value);
+        localStorage.setItem("email", document.getElementById("email").value);
+        localStorage.setItem("address", document.getElementById("address").value);
+
+        alert("Saved to Local Storage!");
+    }
+
+    function loadData() {
+        document.getElementById("name").value = localStorage.getItem("name") || "";
+        document.getElementById("id").value = localStorage.getItem("id") || "";
+        document.getElementById("phone").value = localStorage.getItem("phone") || "";
+        document.getElementById("email").value = localStorage.getItem("email") || "";
+        document.getElementById("address").value = localStorage.getItem("address") || "";
+    }
+</script>
+
+</body>
+</html>
+
+
